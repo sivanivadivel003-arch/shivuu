@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -370,6 +371,139 @@
             color: var(--text-gray);
         }
 
+        /* Chatbot Container */
+        #chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Floating Toggle Button */
+        #chat-toggle-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #fff;
+            /* White button to contrast dark background */
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        #chat-toggle-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Chat Window */
+        #chat-window {
+            width: 350px;
+            height: 450px;
+            background: #111;
+            /* Dark background */
+            border: 1px solid #333;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Header */
+        #chat-header {
+            background: #222;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+        }
+
+        #close-chat {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Chat Body */
+        #chat-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #000;
+        }
+
+        /* Message Bubbles */
+        .message {
+            padding: 10px 14px;
+            border-radius: 12px;
+            max-width: 80%;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .bot {
+            background: #222;
+            color: #eee;
+            align-self: flex-start;
+        }
+
+        .user {
+            background: #fff;
+            color: #000;
+            align-self: flex-end;
+        }
+
+        /* Footer Input Area */
+        #chat-footer {
+            padding: 10px;
+            display: flex;
+            gap: 10px;
+            background: #111;
+            border-top: 1px solid #333;
+        }
+
+        #chat-input {
+            flex: 1;
+            background: #222;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        #send-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #send-btn:hover {
+            background: #ccc;
+        }
+
         /* Contact Section */
         .contact-grid {
             display: grid;
@@ -446,6 +580,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -499,18 +634,26 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
                 transform: translateX(-50%) translateY(0);
             }
+
             40% {
                 transform: translateX(-50%) translateY(-20px);
             }
+
             60% {
                 transform: translateX(-50%) translateY(-10px);
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -534,7 +677,8 @@
             <div class="hero-content">
                 <h1>SIVANI V</h1>
                 <h2>Electronics & Communication Engineering Student | Embedded Systems Enthusiast</h2>
-                <p>Passionate about embedded systems, microcontrollers, and electronics. Experienced with PIC microcontroller, NodeMCU, C, Python, MPLAB, and Proteus.</p>
+                <p>Passionate about embedded systems, microcontrollers, and electronics. Experienced with PIC
+                    microcontroller, NodeMCU, C, Python, MPLAB, and Proteus.</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="#contact" class="btn">Contact Me</a>
@@ -551,16 +695,20 @@
         <h2>About Me</h2>
         <div class="about-content">
             <p>
-                I am a final-year <span class="about-highlight">B.Tech Electronics & Communication Engineering</span> student at 
-                <span class="about-highlight">Government College of Engineering, Srirangam</span>, with a CGPA of <span class="about-highlight">7.89</span>.
+                I am a final-year <span class="about-highlight">B.Tech Electronics & Communication Engineering</span>
+                student at
+                <span class="about-highlight">Government College of Engineering, Srirangam</span>, with a CGPA of <span
+                    class="about-highlight">7.89</span>.
             </p>
             <p>
-                My passion lies in <span class="about-highlight">embedded systems, microcontrollers, and electronics</span>. 
-                I have hands-on experience with PIC microcontroller, NodeMCU, and have developed projects using C and Python. 
+                My passion lies in <span class="about-highlight">embedded systems, microcontrollers, and
+                    electronics</span>.
+                I have hands-on experience with PIC microcontroller, NodeMCU, and have developed projects using C and
+                Python.
                 I am proficient in tools like MPLAB and Proteus for simulation and development.
             </p>
             <p>
-                I am eager to apply my knowledge and skills to real-world challenges in the fields of embedded systems, 
+                I am eager to apply my knowledge and skills to real-world challenges in the fields of embedded systems,
                 electronics design, and software development.
             </p>
         </div>
@@ -716,13 +864,30 @@
         </div>
         <p style="color: var(--text-gray);">&copy; 2025 Sivani V. All rights reserved.</p>
     </footer>
-
+    <div id="chat-container">
+        <div id="chat-window" class="hidden">
+            <div id="chat-header">
+                <span>Sivani's Assistant</span>
+                <button id="close-chat">&times;</button>
+            </div>
+            <div id="chat-body">
+                <div class="message bot">Hi! I'm Sivani's virtual assistant. How can I help you today?</div>
+            </div>
+            <div id="chat-footer">
+                <input type="text" id="chat-input" placeholder="Type a message...">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+        <button id="chat-toggle-btn">
+            <img src="https://cdn-icons-png.flaticon.com/512/8149/8149178.png" alt="chat-icon" width="30">
+        </button>
+    </div>
     <script>
         // Sticky Scroll Animation with Image Sequence
         const canvas = document.getElementById('animationCanvas');
         const ctx = canvas.getContext('2d');
         const heroContainer = document.querySelector('.hero-container');
-        
+
         // Set canvas size
         function resizeCanvas() {
             canvas.width = window.innerWidth;
@@ -741,16 +906,16 @@
             const img = new Image();
             const frameNumber = i.toString().padStart(3, '0');
             img.src = `image/ezgif-frame-${frameNumber}.jpg`; // Try .jpg first, then .png
-            
+
             img.onload = () => {
                 imagesLoaded++;
             };
-            
+
             img.onerror = () => {
                 // Try .png if .jpg fails
                 img.src = `image/ezgif-frame-${frameNumber}.png`;
             };
-            
+
             images[i - 1] = img;
         }
 
@@ -760,7 +925,7 @@
                 const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
                 const x = (canvas.width / 2) - (img.width / 2) * scale;
                 const y = (canvas.height / 2) - (img.height / 2) * scale;
-                
+
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
             }
@@ -772,7 +937,7 @@
             const maxScroll = heroContainer.offsetHeight - window.innerHeight;
             const scrollFraction = Math.min(scrollTop / maxScroll, 1);
             const frameIndex = Math.floor(scrollFraction * (frameCount - 1));
-            
+
             requestAnimationFrame(() => drawFrame(frameIndex));
         });
 
@@ -816,6 +981,147 @@
             section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(section);
         });
+        // --- 1. API Configuration ---
+const API_KEY = "AIzaSyDhVCveZ5xY3wiLTJPQwbkKKlqXV8KvYfY"; 
+const MODEL_ID = "gemini-2.5-flash"; // Changed from 2.5 to 1.5 as 2.5 is not yet available
+
+// --- 2. Selectors ---
+const chatWindow = document.getElementById('chat-window');
+const chatToggleBtn = document.getElementById('chat-toggle-btn');
+const closeChat = document.getElementById('close-chat');
+const sendBtn = document.getElementById("send-btn");
+const chatInput = document.getElementById("chat-input");
+const chatBody = document.getElementById("chat-body"); // Fixed selector
+
+// --- 3. Toggle Logic (Fixes the "not working" click) ---
+chatToggleBtn.addEventListener('click', () => {
+    chatWindow.classList.toggle('hidden');
+});
+
+closeChat.addEventListener('click', () => {
+    chatWindow.classList.add('hidden');
+});
+
+// --- 4. Messaging Logic ---
+async function getGeminiResponse(userPrompt) {
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_ID}:generateContent?key=${API_KEY}`;
+    
+    // Your specific Portfolio System Prompt
+    const systemPrompt = `You are a portfolio chatbot for SIVANI V, a final-year Electronics and Communication Engineering student.
+Your purpose is to answer visitors’ questions about Sivani’s skills, education, projects, experience, and contact details based only on her portfolio information.
+
+Profile Information:
+
+Name: SIVANI V
+
+Degree: B.Tech – Electronics & Communication Engineering
+
+College: Government College of Engineering, Srirangam
+
+CGPA: 7.89
+
+Location: Thanjavur
+
+Skills:
+
+C Programming
+
+Python
+
+Embedded Systems
+
+PIC Microcontroller
+
+NodeMCU
+
+MPLAB
+
+Proteus
+
+Basic Electronics
+
+Team Collaboration
+
+Experience & Training:
+
+Embedded Systems Intern – Manfree Tech (1 Month)
+
+Worked on PIC microcontroller applications
+
+Circuit simulation using Proteus
+
+Embedded Systems Workshop (NodeMCU – 2 Days)
+
+Projects:
+
+Car Obstacle Detection System
+
+Embedded system using sensors and PIC microcontroller
+
+Simulated and tested using Proteus
+
+Team-based project
+
+Contact Information:
+
+Email: sivanivadivel003@gmail.com
+
+Phone: 8072749390
+
+LinkedIn: https://linkedin.com/in/sivani
+
+Chatbot Rules:
+
+Respond in a friendly, professional, and concise manner
+
+Do not invent information
+
+If asked something not in the portfolio, reply:
+“That information is not available in Sivani’s portfolio. Please contact her directly for more details.”
+
+Encourage recruiters and collaborators to get in touch
+
+Role:
+Act as a virtual assistant that introduces Sivani to recruiters, interviewers, and visitors.`;
+
+    const requestBody = {
+        contents: [{
+            parts: [{ text: `${systemPrompt}\n\nUser: ${userPrompt}` }]
+        }]
+    };
+
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(requestBody)
+        });
+        const data = await response.json();
+        return data.candidates[0].content.parts[0].text;
+    } catch (error) {
+        return "I'm having trouble connecting. Please contact Sivani at sivanivadivel003@gmail.com";
+    }
+}
+
+sendBtn.addEventListener("click", async () => {
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    appendMessage(message, "user");
+    chatInput.value = "";
+
+    const botResponse = await getGeminiResponse(message);
+    appendMessage(botResponse, "bot");
+});
+
+function appendMessage(text, sender) {
+    const msgDiv = document.createElement("div");
+    msgDiv.className = `message ${sender}`;
+    msgDiv.innerText = text;
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
     </script>
 </body>
+
 </html>
